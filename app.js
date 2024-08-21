@@ -35,7 +35,6 @@ function regraDeTres(valor1, valor2, valor3, valor4, tipo, incognita) {
   } else {
     throw new Error('Tipo de proporcionalidade inválido');
   }
-
   return resultado;
 }
 
@@ -60,7 +59,6 @@ app.get('/calcular-regra-de-tres', function(req, res) {
   }
 });
 
-// Maior Valor entre Cinco Números
 function maiorValor(num1, num2, num3, num4, num5) {
   return Math.max(num1, num2, num3, num4, num5);
 }
@@ -81,7 +79,6 @@ app.get('/calcular-maior-valor', function(req, res) {
   res.send(`Maior Valor: ${resultado}`);
 });
 
-// Menor Valor entre Cinco Números
 function menorValor(num1, num2, num3, num4, num5) {
   return Math.min(num1, num2, num3, num4, num5);
 }

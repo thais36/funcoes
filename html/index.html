@@ -13,6 +13,7 @@
     <!-- Regra de Três -->
     <div class="mb-5">
       <h2>Regra de Três</h2>
+      <p style="color: red;">Expressão: (Valor 1 / Valor 3) = (Valor 2 / Valor 4)</p>    
       <form id="form-regra-de-tres">
         <div class="form-group">
           <label for="valor1">Valor 1 (Deixe em branco se for a incógnita):</label>
@@ -47,24 +48,24 @@
       <h2>Maior Valor</h2>
       <form id="form-maior-valor">
         <div class="form-group">
-          <label for="num1">Número 1:</label>
-          <input type="number" class="form-control" id="num1" name="num1" required>
+          <label for="maior-num1">Número 1:</label>
+          <input type="number" class="form-control" id="maior-num1" name="num1" required>
         </div>
         <div class="form-group">
-          <label for="num2">Número 2:</label>
-          <input type="number" class="form-control" id="num2" name="num2" required>
+          <label for="maior-num2">Número 2:</label>
+          <input type="number" class="form-control" id="maior-num2" name="num2" required>
         </div>
         <div class="form-group">
-          <label for="num3">Número 3:</label>
-          <input type="number" class="form-control" id="num3" name="num3" required>
+          <label for="maior-num3">Número 3:</label>
+          <input type="number" class="form-control" id="maior-num3" name="num3" required>
         </div>
         <div class="form-group">
-          <label for="num4">Número 4:</label>
-          <input type="number" class="form-control" id="num4" name="num4" required>
+          <label for="maior-num4">Número 4:</label>
+          <input type="number" class="form-control" id="maior-num4" name="num4" required>
         </div>
         <div class="form-group">
-          <label for="num5">Número 5:</label>
-          <input type="number" class="form-control" id="num5" name="num5" required>
+          <label for="maior-num5">Número 5:</label>
+          <input type="number" class="form-control" id="maior-num5" name="num5" required>
         </div>
         <button type="submit" class="btn btn-primary">Calcular</button>
       </form>
@@ -76,24 +77,24 @@
       <h2>Menor Valor</h2>
       <form id="form-menor-valor">
         <div class="form-group">
-          <label for="num1">Número 1:</label>
-          <input type="number" class="form-control" id="num1" name="num1" required>
+          <label for="menor-num1">Número 1:</label>
+          <input type="number" class="form-control" id="menor-num1" name="num1" required>
         </div>
         <div class="form-group">
-          <label for="num2">Número 2:</label>
-          <input type="number" class="form-control" id="num2" name="num2" required>
+          <label for="menor-num2">Número 2:</label>
+          <input type="number" class="form-control" id="menor-num2" name="num2" required>
         </div>
         <div class="form-group">
-          <label for="num3">Número 3:</label>
-          <input type="number" class="form-control" id="num3" name="num3" required>
+          <label for="menor-num3">Número 3:</label>
+          <input type="number" class="form-control" id="menor-num3" name="num3" required>
         </div>
         <div class="form-group">
-          <label for="num4">Número 4:</label>
-          <input type="number" class="form-control" id="num4" name="num4" required>
+          <label for="menor-num4">Número 4:</label>
+          <input type="number" class="form-control" id="menor-num4" name="num4" required>
         </div>
         <div class="form-group">
-          <label for="num5">Número 5:</label>
-          <input type="number" class="form-control" id="num5" name="num5" required>
+          <label for="menor-num5">Número 5:</label>
+          <input type="number" class="form-control" id="menor-num5" name="num5" required>
         </div>
         <button type="submit" class="btn btn-primary">Calcular</button>
       </form>
@@ -126,11 +127,11 @@
 
     document.getElementById('form-maior-valor').addEventListener('submit', function(event) {
       event.preventDefault();
-      const num1 = parseFloat(document.getElementById('num1').value);
-      const num2 = parseFloat(document.getElementById('num2').value);
-      const num3 = parseFloat(document.getElementById('num3').value);
-      const num4 = parseFloat(document.getElementById('num4').value);
-      const num5 = parseFloat(document.getElementById('num5').value);
+      const num1 = parseFloat(document.getElementById('maior-num1').value);
+      const num2 = parseFloat(document.getElementById('maior-num2').value);
+      const num3 = parseFloat(document.getElementById('maior-num3').value);
+      const num4 = parseFloat(document.getElementById('maior-num4').value);
+      const num5 = parseFloat(document.getElementById('maior-num5').value);
       const url = `/calcular-maior-valor?num1=${num1}&num2=${num2}&num3=${num3}&num4=${num4}&num5=${num5}`;
       
       fetch(url)
@@ -140,11 +141,11 @@
 
     document.getElementById('form-menor-valor').addEventListener('submit', function(event) {
       event.preventDefault();
-      const num1 = parseFloat(document.getElementById('num1').value);
-      const num2 = parseFloat(document.getElementById('num2').value);
-      const num3 = parseFloat(document.getElementById('num3').value);
-      const num4 = parseFloat(document.getElementById('num4').value);
-      const num5 = parseFloat(document.getElementById('num5').value);
+      const num1 = parseFloat(document.getElementById('menor-num1').value);
+      const num2 = parseFloat(document.getElementById('menor-num2').value);
+      const num3 = parseFloat(document.getElementById('menor-num3').value);
+      const num4 = parseFloat(document.getElementById('menor-num4').value);
+      const num5 = parseFloat(document.getElementById('menor-num5').value);
       const url = `/calcular-menor-valor?num1=${num1}&num2=${num2}&num3=${num3}&num4=${num4}&num5=${num5}`;
       
       fetch(url)
