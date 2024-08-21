@@ -7,7 +7,7 @@ Este projeto é uma calculadora de funções desenvolvida como parte da atividad
 - **Menor Valor:** Determina o menor valor entre cinco números fornecidos.
 
 ## Visualize o Projeto
-Você pode visualizar o projeto em [GitHub Pages](https://thais36.github.io/funcoes/html/).
+Você pode visualizar o projeto em [Funções](https://thais36.github.io/funcoes/html/).
 
 ---
 
