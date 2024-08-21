@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Funções</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Calculadora de Funções</h1>
+    
+    <!-- Regra de Três -->
+    <div class="mb-5">
+      <h2>Regra de Três</h2>
+      <form id="form-regra-de-tres">
+        <div class="form-group">
+          <label for="valor1">Valor 1 (Deixe em branco se for a incógnita):</label>
+          <input type="number" class="form-control" id="valor1" name="valor1">
+        </div>
+        <div class="form-group">
+          <label for="valor2">Valor 2 (Deixe em branco se for a incógnita):</label>
+          <input type="number" class="form-control" id="valor2" name="valor2">
+        </div>
+        <div class="form-group">
+          <label for="valor3">Valor 3 (Deixe em branco se for a incógnita):</label>
+          <input type="number" class="form-control" id="valor3" name="valor3">
+        </div>
+        <div class="form-group">
+          <label for="valor4">Valor 4 (Deixe em branco se for a incógnita):</label>
+          <input type="number" class="form-control" id="valor4" name="valor4">
+        </div>
+        <div class="form-group">
+          <label for="tipo">Tipo de Proporcionalidade:</label>
+          <select class="form-control" id="tipo" name="tipo" required>
+            <option value="direta">Diretamente Proporcional</option>
+            <option value="inversa">Inversamente Proporcional</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Calcular</button>
+      </form>
+      <p id="resultado-regra-de-tres" class="mt-3"></p>
+    </div>
+    
+    <!-- Maior Valor -->
+    <div class="mb-5">
+      <h2>Maior Valor</h2>
+      <form id="form-maior-valor">
+        <div class="form-group">
+          <label for="num1">Número 1:</label>
+          <input type="number" class="form-control" id="num1" name="num1" required>
+        </div>
+        <div class="form-group">
+          <label for="num2">Número 2:</label>
+          <input type="number" class="form-control" id="num2" name="num2" required>
+        </div>
+        <div class="form-group">
+          <label for="num3">Número 3:</label>
+          <input type="number" class="form-control" id="num3" name="num3" required>
+        </div>
+        <div class="form-group">
+          <label for="num4">Número 4:</label>
+          <input type="number" class="form-control" id="num4" name="num4" required>
+        </div>
+        <div class="form-group">
+          <label for="num5">Número 5:</label>
+          <input type="number" class="form-control" id="num5" name="num5" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Calcular</button>
+      </form>
+      <p id="resultado-maior-valor" class="mt-3"></p>
+    </div>
+    
+    <!-- Menor Valor -->
+    <div>
+      <h2>Menor Valor</h2>
+      <form id="form-menor-valor">
+        <div class="form-group">
+          <label for="num1">Número 1:</label>
+          <input type="number" class="form-control" id="num1" name="num1" required>
+        </div>
+        <div class="form-group">
+          <label for="num2">Número 2:</label>
+          <input type="number" class="form-control" id="num2" name="num2" required>
+        </div>
+        <div class="form-group">
+          <label for="num3">Número 3:</label>
+          <input type="number" class="form-control" id="num3" name="num3" required>
+        </div>
+        <div class="form-group">
+          <label for="num4">Número 4:</label>
+          <input type="number" class="form-control" id="num4" name="num4" required>
+        </div>
+        <div class="form-group">
+          <label for="num5">Número 5:</label>
+          <input type="number" class="form-control" id="num5" name="num5" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Calcular</button>
+      </form>
+      <p id="resultado-menor-valor" class="mt-3"></p>
+    </div>
+  </div>
+  
+  <script>
+    document.getElementById('form-regra-de-tres').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const valor1 = parseFloat(document.getElementById('valor1').value) || null;
+      const valor2 = parseFloat(document.getElementById('valor2').value) || null;
+      const valor3 = parseFloat(document.getElementById('valor3').value) || null;
+      const valor4 = parseFloat(document.getElementById('valor4').value) || null;
+      const tipo = document.getElementById('tipo').value;
+      
+      let incognita = 'valor4';
+      if (valor4 !== null) {
+        if (valor1 === null) incognita = 'valor1';
+        else if (valor2 === null) incognita = 'valor2';
+        else if (valor3 === null) incognita = 'valor3';
+      }
+
+      let url = `/calcular-regra-de-tres?valor1=${valor1 || ''}&valor2=${valor2 || ''}&valor3=${valor3 || ''}&valor4=${valor4 || ''}&tipo=${tipo}&incognita=${incognita}`;
+      
+      fetch(url)
+        .then(response => response.text())
+        .then(data => document.getElementById('resultado-regra-de-tres').innerHTML = data);
+    });
+
+    document.getElementById('form-maior-valor').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+      const num3 = parseFloat(document.getElementById('num3').value);
+      const num4 = parseFloat(document.getElementById('num4').value);
+      const num5 = parseFloat(document.getElementById('num5').value);
+      const url = `/calcular-maior-valor?num1=${num1}&num2=${num2}&num3=${num3}&num4=${num4}&num5=${num5}`;
+      
+      fetch(url)
+        .then(response => response.text())
+        .then(data => document.getElementById('resultado-maior-valor').innerHTML = data);
+    });
+
+    document.getElementById('form-menor-valor').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+      const num3 = parseFloat(document.getElementById('num3').value);
+      const num4 = parseFloat(document.getElementById('num4').value);
+      const num5 = parseFloat(document.getElementById('num5').value);
+      const url = `/calcular-menor-valor?num1=${num1}&num2=${num2}&num3=${num3}&num4=${num4}&num5=${num5}`;
+      
+      fetch(url)
+        .then(response => response.text())
+        .then(data => document.getElementById('resultado-menor-valor').innerHTML = data);
+    });
+  </script>
+</body>
+</html>
