@@ -5,13 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculadora de Funções</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    body {
+      background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+    }
+    .section {
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    .section h2 {
+      border-bottom: 3px solid #28a745; /* Linha verde grossa horizontal */
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    .section + .section {
+      border-top: 3px solid #28a745; /* Linha verde grossa horizontal entre seções */
+      padding-top: 20px;
+    }
+  </style>
 </head>
 <body>
   <div class="container mt-5">
     <h1 class="text-center mb-4">Calculadora de Funções</h1>
     
     <!-- Regra de Três -->
-    <div class="mb-5">
+    <div class="section">
       <h2>Regra de Três</h2>
       <p style="color: red;">Expressão: (Valor 1 / Valor 3) = (Valor 2 / Valor 4)</p>    
       <form id="form-regra-de-tres">
@@ -44,7 +62,7 @@
     </div>
     
     <!-- Maior Valor -->
-    <div class="mb-5">
+    <div class="section">
       <h2>Maior Valor</h2>
       <form id="form-maior-valor">
         <div class="form-group">
@@ -73,7 +91,7 @@
     </div>
     
     <!-- Menor Valor -->
-    <div>
+    <div class="section">
       <h2>Menor Valor</h2>
       <form id="form-menor-valor">
         <div class="form-group">
